@@ -1,0 +1,8 @@
+{
+  "name" : "gobang",
+  "version" : "0.1.0-alpha1DEV",
+  "build-commit" : "0000",
+  "build-date" : "2016-04-10",
+  "main" : "app.js",
+  "private": false
+}
