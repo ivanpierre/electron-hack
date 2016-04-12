@@ -1,18 +1,28 @@
+#Elecron-Hack
 
-# gobang
+Hacking a little bit on Electron container with ClojureScript
+-------------------------------------------------------------
 
-## Requirements
+This has been created with the [electron-template de ducky427](https://github.com/ducky427/electron-template) but is reworked...
 
-* JDK 1.7+
-* Leiningen 2.5.3
-* node.js 5.1.1 [This is done to match the verion of node.js being used in Electron v0.37.2]
-* [NSIS](http://nsis.sourceforge.net/)
+Just to play a bit, and try to hack electron from inside electron, with interfacing enhencement as a goal.
+
+As a sandbox it's not presumed to be working, but as I play with, it's probable to... ;)
+
+Requirements
+------------
+
+-	JDK 1.7+
+-	Leiningen 2.5.3
+-	node.js 5.1.1 [This is done to match the verion of node.js being used in Electron v0.37.2]
+-	[NSIS](http://nsis.sourceforge.net/)
 
 On Mac/Linux, installing node.js using [Node Version Manager](https://github.com/creationix/nvm) is recommended.
 
-This project uses Electron v0.35.2. Please check [Electron's GitHub page](https://github.com/atom/electron) for the latest version. The version is specified in `Gruntfile.js` under the `Grunt Config` section.
+This project uses Electron v0.35.2. Please check [Electron's GitHub page](https://github.com/atom/electron) for the latest version.
 
-## Setup
+Setup
+-----
 
 On Mac/Linux:
 
@@ -28,8 +38,8 @@ scripts\setup.bat
 
 This will install the node dependencies for the project, along with grunt and bower and will also run `grunt setup`.
 
-
-## Development mode
+Development mode
+----------------
 
 Start the figwheel server:
 
@@ -47,18 +57,18 @@ This will give better readline support.
 
 More about [figwheel](https://github.com/bhauman/lein-figwheel) here.
 
-
 In another terminal window, launch the electron app:
 
 ```
 grunt launch
 ```
 
-You can edit the `src/cljs/gobang/core.cljs` file and the changes should show up in the electron app without the need to re-launch.
+You can edit the `src/cljs/gobang/render.cljs` file and the changes should show up in the electron app without the need to re-launch.
 
-## Using nREPL with figwheel
+Using nREPL with figwheel
+-------------------------
 
-- Start the repl using `lein repl`.
+-	Start the repl using `lein repl`.
 
 ```
 user> (use 'figwheel-sidecar.repl-api)
@@ -68,9 +78,9 @@ user> (def figwheel-config
          :build-ids ["dev"]
          :all-builds
            [{:id "dev"
-             :figwheel {:on-jsload "gobang.core/mount-root"}
+             :figwheel {:on-jsload "gobang.render/mount-root"}
              :source-paths ["src/cljs" "env/dev/cljs"]
-             :compiler {:main "gobang.dev"
+             :compiler {:main "gobang.render"
                         :asset-path "js/p/out"
                         :output-to "app/js/p/app.js"
                         :output-dir "app/js/p/out" }}]})
@@ -86,23 +96,26 @@ Figwheel: Starting CSS Watcher for paths  ["app/css"]
 
 See [Figwheel wiki](https://github.com/bhauman/lein-figwheel/wiki/Using-the-Figwheel-REPL-within-NRepl) for more details.
 
-## Dependencies
+Dependencies
+------------
 
 Node dependencies are in `package.json` file. Bower dependencies are in `bower.json` file. Clojure/ClojureScript dependencies are in `project.clj`.
 
-## Icons
+Icons
+-----
 
 Please replace the icons provided with your application's icons. The development icons are from [node-appdmg](https://github.com/LinusU/node-appdmg) project.
 
 Files to replace:
 
-* app/img/logo.icns
-* app/img/logo.ico
-* app/img/logo_96x96.png
-* scripts/dmg/TestBkg.png
-* scripts/dmg/TestBkg@2x.png
+-	app/img/logo.icns
+-	app/img/logo.ico
+-	app/img/logo_96x96.png
+-	scripts/dmg/TestBkg.png
+-	scripts/dmg/TestBkg@2x.png
 
-## Creating a build for release
+Creating a build for release
+----------------------------
 
 To create a Windows build from a non-Windows platform, please install `wine`. On OS X, an easy option is using homebrew.
 
@@ -124,24 +137,24 @@ This will create the directories in the `builds` folder.
 
 Note: you will need to be on OSX to create a DMG file and on Windows to create the setup .exe file.
 
-
-## Grunt commands
+Grunt commands
+--------------
 
 To run a command, type `grunt <command>` in the terminal.
 
+| Command  | Description                                                                               |
+|:---------|:------------------------------------------------------------------------------------------|
+| setup    | Download electron project, installs bower dependencies and setups up the app config file. |
+| launch   | Launches the electron app                                                                 |
+| release  | Creates a Win/OSX/Linux executables                                                       |
+| outdated | List all outdated clj/cljs/node/bower dependencies                                        |
 
-| Command       | Description                                                                               |
-|---------------|-------------------------------------------------------------------------------------------|
-| setup         | Download electron project, installs bower dependencies and setups up the app config file. |
-| launch        | Launches the electron app                                                                 |
-| release       | Creates a Win/OSX/Linux executables                                                       |
-| outdated      | List all outdated clj/cljs/node/bower dependencies                                        |
-
-## Leiningen commands
+Leiningen commands
+------------------
 
 To run a command, type `lein <command>` in the terminal.
 
-| Command       | Description                                                                               |
-|---------------|-------------------------------------------------------------------------------------------|
-| cljfmt fix    | Auto-formats all clj/cljs code. See [cljfmt](https://github.com/weavejester/cljfmt)       |
-| kibit         | Statically analyse clj/cljs and give suggestions                                          |
+| Command    | Description                                                                         |
+|:-----------|:------------------------------------------------------------------------------------|
+| cljfmt fix | Auto-formats all clj/cljs code. See [cljfmt](https://github.com/weavejester/cljfmt) |
+| kibit      | Statically analyse clj/cljs and give suggestions                                    |
