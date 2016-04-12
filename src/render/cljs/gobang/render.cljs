@@ -1,10 +1,11 @@
-(ns gobang.core
+(ns gobang.render
   (:require [reagent.core :as reagent]
-            [cljsjs.react]))
+            [cljsjs.react]
+            [hack.hack]))
 
 (defn main-page
   []
-  [:div "Hello world!"])
+  [:div "Hello World!"])
 
 (defn mount-root
   []
