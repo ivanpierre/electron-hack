@@ -5,7 +5,7 @@ Hacking a little bit on Electron container with ClojureScript
 
 This has been created with the [electron-template de ducky427](https://github.com/ducky427/electron-template) but is reworked...
 
-Just to play a bit, and try to hack electron from inside electron, with interfacing enhencement as a goal.
+Just to play a bit, and try to hack electron from inside electron, with interfacing enhencements as a goal.
 
 As a sandbox it's not presumed to be working, but as I play with, it's probable to... ;)
 
@@ -14,7 +14,7 @@ Requirements
 
 -	JDK 1.7+
 -	Leiningen 2.5.3
--	node.js 5.1.1 [This is done to match the verion of node.js being used in Electron v0.37.2]
+-	node.js 5.1.1 [This is done to match the version of node.js being used in Electron v0.37.2]
 -	[NSIS](http://nsis.sourceforge.net/)
 
 On Mac/Linux, installing node.js using [Node Version Manager](https://github.com/creationix/nvm) is recommended.

@@ -18,7 +18,7 @@
 
   :min-lein-version "2.5.3"
 
-  :cljsbuild {:builds {:app {:source-paths ["src/main/cljs" "src/cljs"]
+  :cljsbuild {:builds {:app {:source-paths ["src/main/cljs"]
                              :compiler {:output-to     "app/js/p/app.js"
                                         :output-dir    "app/js/p/out"
                                         :asset-path    "js/p/out"
@@ -30,7 +30,7 @@
 
   :figwheel {:css-dirs ["app/css"]}
 
-  :profiles {:dev {:cljsbuild {:builds {:app {:source-paths ["src/render/cljs" "src/cljs"]
+  :profiles {:dev {:cljsbuild {:builds {:app {:source-paths ["src/render/cljs"]
                                               :compiler {:source-map true
                                                          :main "gobang.render"
                                                          :verbose true}

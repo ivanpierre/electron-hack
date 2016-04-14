@@ -1,7 +1,7 @@
 (ns gobang.render
   (:require [reagent.core :as reagent]
-            [cljsjs.react]
-            [hack.hack]))
+            [cljsjs.react :as r]
+            [gobang.hack :as h]))
 
 (defn main-page
   []
