@@ -27,10 +27,11 @@
      [lein-figwheel "0.5.2"]]
 
   :figwheel
-    {:css-dirs          ["resources/public/css"]
+    {:css-dirs          ["app/css"]
      :server-logfile    "figwheel_server.log"
      :reload-clj-files  {:clj true
-                         :cljc true}}
+                         :cljc true}
+     :open-file-command "atom-opener"}
 
   ; Generated file for lein clean
   :clean-targets ^{:protect false} [:target-path  "app/js"]
@@ -62,6 +63,7 @@
          :source-paths ["src/render/cljs"]
          :incremental true
          :jar true
+         :figwheel true
          :assert true
          :compiler
            {:output-to "app/js/front/frontmain.js"
