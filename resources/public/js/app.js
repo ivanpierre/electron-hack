@@ -1,3 +1,4 @@
+require('js/libhack');
 var electron = require('electron'),
     fs = require('fs-extra'),
     path = require('path'),
@@ -262,7 +263,7 @@ if (process.platform == 'darwin') {
 // on all operating systems
 const browserWindowOptions = {
   height: 850,
-  title: 'gobang',
+  title: 'hack',
   width: 1400,
   icon: __dirname + '/img/logo_96x96.png'
 };
@@ -302,6 +303,4 @@ app.on('ready', function() {
 
   if (devConfig.hasOwnProperty('dev-tools') && devConfig['dev-tools'] === true) {
     mainWindow.openDevTools();
-  }
-
-});
+  }});

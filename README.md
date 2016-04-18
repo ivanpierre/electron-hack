@@ -63,7 +63,7 @@ In another terminal window, launch the electron app:
 grunt launch
 ```
 
-You can edit the `src/cljs/gobang/render.cljs` file and the changes should show up in the electron app without the need to re-launch.
+You can edit the `src/cljs/hack/render.cljs` file and the changes should show up in the electron app without the need to re-launch.
 
 Using nREPL with figwheel
 -------------------------
@@ -78,9 +78,9 @@ user> (def figwheel-config
          :build-ids ["dev"]
          :all-builds
            [{:id "dev"
-             :figwheel {:on-jsload "gobang.render/mount-root"}
+             :figwheel {:on-jsload "hack.render/mount-root"}
              :source-paths ["src/cljs" "env/dev/cljs"]
-             :compiler {:main "gobang.render"
+             :compiler {:main "hack.render"
                         :asset-path "js/p/out"
                         :output-to "app/js/p/app.js"
                         :output-dir "app/js/p/out" }}]})

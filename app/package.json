@@ -1,8 +1,7 @@
 {
-  "name" : "gobang",
-  "version" : "0.1.0-alpha1",
-  "build-commit" : "0000",
-  "build-date" : "2016-04-10",
-  "main" : "main.js",
-  "private": false
+  "name" : "hack",
+  "version" : "0.1.0-alpha",
+  "build-commit" : "0002",
+  "build-date" : "2016-04-14",
+  "main" : "js/hackmain.js"
 }

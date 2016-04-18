@@ -15,7 +15,7 @@ var mainWindow = null;
 // on all operating systems
 const browserWindowOptions = {
   height: 850,
-  title: 'gobang',
+  title: 'hack',
   width: 1400,
   icon: __dirname + '/img/logo_96x96.png'
 };

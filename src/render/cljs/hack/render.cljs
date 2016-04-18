@@ -1,7 +1,6 @@
-(ns gobang.render
+(ns hack.render
   (:require [reagent.core :as reagent]
-            [cljsjs.react :as r]
-            [gobang.hack :as h]))
+            [cljsjs.react :as r]))
 
 (defn main-page
   []
@@ -14,3 +13,5 @@
 (defn init!
   []
   (mount-root))
+
+(init!)

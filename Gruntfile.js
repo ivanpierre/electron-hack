@@ -322,7 +322,7 @@ grunt.registerTask('release-mac', function() {
       var dmgName = path.join(dirName, path.basename(dirName) + ".dmg");
       grunt.config.set("appdmg", {
         options: {
-          "title": "gobang",
+          "title": "hack",
           "background": "scripts/dmg/TestBkg.png",
           "icon-size": 80,
           "contents": [

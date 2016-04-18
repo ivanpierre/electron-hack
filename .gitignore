@@ -4,18 +4,14 @@
 /checkouts
 pom.xml
 pom.xml.asc
-figwheel_server.log
 *.jar
 *.class
 /.lein-*
 /.nrepl-
-/app/js/p
 /.repl
-/out
 /node_modules
 /electron
-/app/config.json
-/app/*.log
+*.log
 /builds
 /app/components
 .nrepl-port
@@ -24,3 +20,4 @@ figwheel_server.log
 *-init.clj
 /.idea
 *.iml
+/app/js

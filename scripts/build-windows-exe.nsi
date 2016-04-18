@@ -2,10 +2,10 @@
 ;; NSIS - http://nsis.sourceforge.net/Main_Page
 
 ;; HM NIS Edit Wizard helper defines
-!define PRODUCT_NAME "gobang"
+!define PRODUCT_NAME "hack"
 ;; !define PRODUCT_VERSION "0.0"  ;; This is auto-defined by the caller in the release script
 !define PRODUCT_WEB_SITE "https://github.com/"
-!define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\gobang.exe"
+!define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\hack.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 !define PRODUCT_STARTMENU_REGVAL "NSIS:StartMenuDir"
@@ -37,7 +37,7 @@ var ICONS_GROUP
 !insertmacro MUI_PAGE_INSTFILES
 
 ;; Finish page
-!define MUI_FINISHPAGE_RUN "$INSTDIR\gobang.exe"
+!define MUI_FINISHPAGE_RUN "$INSTDIR\hack.exe"
 !insertmacro MUI_PAGE_FINISH
 
 ; Uninstaller pages
@@ -68,8 +68,8 @@ Section "MainSection" SEC01
 ;; Shortcuts
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
   CreateDirectory "$SMPROGRAMS\$ICONS_GROUP"
-  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\gobang.lnk" "$INSTDIR\gobang.exe"
-  CreateShortCut "$DESKTOP\gobang.lnk" "$INSTDIR\gobang.exe"
+  CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\hack.lnk" "$INSTDIR\hack.exe"
+  CreateShortCut "$DESKTOP\hack.lnk" "$INSTDIR\hack.exe"
   !insertmacro MUI_STARTMENU_WRITE_END
 SectionEnd
 
@@ -84,10 +84,10 @@ SectionEnd
 
 Section -Post
   WriteUninstaller "$INSTDIR\uninst.exe"
-  WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\gobang.exe"
+  WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\hack.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "UninstallString" "$INSTDIR\uninst.exe"
-  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\gobang.exe"
+  WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayIcon" "$INSTDIR\hack.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayVersion" "${PRODUCT_VERSION}"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "URLInfoAbout" "${PRODUCT_WEB_SITE}"
 SectionEnd
@@ -108,8 +108,8 @@ Section Uninstall
 
   Delete "$SMPROGRAMS\$ICONS_GROUP\Uninstall.lnk"
   Delete "$SMPROGRAMS\$ICONS_GROUP\Website.lnk"
-  Delete "$DESKTOP\gobang.lnk"
-  Delete "$SMPROGRAMS\$ICONS_GROUP\gobang.lnk"
+  Delete "$DESKTOP\hack.lnk"
+  Delete "$SMPROGRAMS\$ICONS_GROUP\hack.lnk"
 
   RMDir "$SMPROGRAMS\$ICONS_GROUP"
 

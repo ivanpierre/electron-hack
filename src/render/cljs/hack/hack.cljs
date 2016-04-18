@@ -1,4 +1,5 @@
-(ns gobang.hack
+
+(ns hack.hack
   (:require [cljs.pprint :refer [pprint]]
             [clojure.string :as s]
             [cljs.reader :as r]
