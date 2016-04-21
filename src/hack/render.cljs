@@ -1,3 +1,10 @@
+;;; hack.render
+;;;
+;;; Render frame and main figwheel entry point
+;;;
+;;; @author Ivan Pierre<ivan@kilroysoft.ch>
+;;;
+
 (ns hack.render
   (:require [reagent.core :as reagent]
             [cljsjs.react :as r]))

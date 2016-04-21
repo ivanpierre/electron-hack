@@ -3,5 +3,5 @@
   "version" : "0.1.0-alpha",
   "build-commit" : "0002",
   "build-date" : "2016-04-14",
-  "main" : "js/hackmain.js"
+  "main" : "js/main/hackmain.js"
 }

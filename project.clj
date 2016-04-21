@@ -1,5 +1,5 @@
-(defproject hack "0.1.0-alpha"
-  :description "FIXME: write description"
+(defproject hack "0.0.2-alpha"
+  :description "Hack"
   :url "http://example.com/FIXME"
   :license
     {:name "Eclipse Public License"
@@ -34,19 +34,21 @@
      :open-file-command "atom-opener"}
 
   ; Generated file for lein clean
-  :clean-targets ^{:protect false} [:target-path  "app/js"]
+  :clean-targets ^{:protect false} [:target-path  "app/js"
+                                                  "target"
+                                                  "figwheel_server.log"]
 
   ; Compile the whole
   :cljsbuild
     {:builds
       [{:id main
-        :source-paths ["src/main/cljs"]
+        :source-paths ["src"]
         :incremental true
         :jar true
         :assert true
         :compiler
-          {:output-to "app/js/main/hackmain.js"
-           :asset-path "js/main"
+          {:output-to "app/js/main/hackmain.js" ; defined in package.json :main
+           :asset-path "app/js/main" ; !!! root is the project and code root is main
            :externs ["externs/misc.js"
                      "node_modules/closurecompiler-externs/path.js"
                      "node_modules/closurecompiler-externs/process.js"]
@@ -55,20 +57,20 @@
            :elide-asserts true
            :target :nodejs
            :optimizations :none
-           :output-dir "app/js/main"
+           :output-dir "app/js/main" ;
            ;;:source-map "app/js/test.js.map"
            :pretty-print true
            :output-wrapper true}}
        {:id front
-         :source-paths ["src/render/cljs"]
+         :source-paths ["src"]
          :incremental true
          :jar true
          :figwheel true
          :assert true
          :compiler
-           {:output-to "app/js/front/frontmain.js"
-            :asset-path "js/front"
-            :main "hack.render"
+           {:output-to "app/js/front/frontmain.js" ; Included in start HTML file launches hack.render
+            :asset-path "js/front" ; !!! root is in /app and code root is front
+            :main "hack.render" ; this will generate a js script to launch renderer
             :externs ["externs/misc.js"]
             :warnings true
             :elide-asserts true

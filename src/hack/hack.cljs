@@ -1,3 +1,9 @@
+;;; hack.hack
+;;;
+;;; Test in analysis of a complete js->clj
+;;;
+;;; @author Ivan Pierre<ivan@kilroysoft.ch>
+;;;
 
 (ns hack.hack
   (:require [cljs.pprint :refer [pprint]]

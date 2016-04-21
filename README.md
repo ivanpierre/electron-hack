@@ -1,13 +1,19 @@
 #Elecron-Hack
 
+State : - compile : OK - running : OK
+
 Hacking a little bit on Electron container with ClojureScript
 -------------------------------------------------------------
 
 This has been created with the [electron-template de ducky427](https://github.com/ducky427/electron-template) but is reworked...
 
-Just to play a bit, and try to hack electron from inside electron, with interfacing enhencements as a goal.
+Just to play a bit, and try to hack electron from inside electron, with interfacing enhancements as a goal.
 
 As a sandbox it's not presumed to be working, but as I play with, it's probable to... ;)
+
+Main entry point written in ClojureScript.
+
+Uses standard electron app.
 
 Requirements
 ------------
