@@ -15,6 +15,12 @@ Main entry point written in ClojureScript.
 
 Uses standard electron app.
 
+##Warnings
+
+Only tested with no optimization with Figwheel... so to be seen with URLs changes
+
+The root for the main application is the root of the project. The root for the render application is the /app
+
 Requirements
 ------------
 
