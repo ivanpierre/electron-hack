@@ -31,10 +31,10 @@
 (def globalShortcut (.-globalShortcut electron))
 (def Menu (.-Menu electron))
 (def MenuItem (.-MenuItem electron))
-(def powerMonitor (.-powerMonitor electron))
+; (def powerMonitor (.-powerMonitor electron)) ; needs app to be ready
 (def powerSaveBlocker (.-powerSaveBlocker electron))
-(def protocol (.-protocol electron))
-(def screen (.-screen electron))
+; (def protocol (.-protocol electron)) ; needs app to be ready
+; (def screen (.-screen electron)) ; needs app to be ready
 (def session (.-session electron))
 (def Tray (.-Tray electron))
 
@@ -55,7 +55,7 @@
                            root filename)))))
 
 (def platform (.-platform js/process))
-(def package (js/require (file-url "package.json"))) ; Package content
+; (def package (js/require (file-url "package.json"))) ; Package content
 (def *win* (atom nil))
 (def *options* (atom nil))
 (def *url* (atom "index.html"))
@@ -73,6 +73,7 @@
   (open-window @*options*))
 
  ([options]
+  (enable-console-print!)
   (println (str "Opening window " @*url* "."))
   (if (not= options @*options*)
     (do

@@ -22,7 +22,7 @@
    :icon    (e/file-url "img/logo_96x96.png")})
 
 (def errorCfg
-  {:companyName "Hack Inc."
+  {:companyName "kilroySoft Inc."
    :submitURL   "http://example.com/"})
 
 (defn- start-main []
@@ -30,16 +30,17 @@
   (e/start-crash-reporter errorCfg)
   (.. e/app
     (on "window-all-closed"
-       (fn []
-         (if (not= (.platform js/process) "darwin")
-           (.quit e/app)))))
+      (fn []
+;       (if (not= (.platform js/process) "darwin")
+        (.quit e/app))))
   (.. e/app
     (on "ready"
-      (e/open-window browserWindowOptions)
-      (println (str "Start application on " (.type e/os) ".")))))
+      (fn []
+        (e/open-window browserWindowOptions)
+        (println (str "Start application on " (.type e/os) "."))))))
 
 ; set main CLI function on start-main
 (set! *main-cli-fn* start-main)
 
 (defn -main []
-  (change-window "index.html"))
+  (e/change-window "index.html"))
