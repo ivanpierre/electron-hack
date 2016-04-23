@@ -31,12 +31,14 @@
 (def globalShortcut (.-globalShortcut electron))
 (def Menu (.-Menu electron))
 (def MenuItem (.-MenuItem electron))
-; (def powerMonitor (.-powerMonitor electron)) ; needs app to be ready
 (def powerSaveBlocker (.-powerSaveBlocker electron))
-; (def protocol (.-protocol electron)) ; needs app to be ready
-; (def screen (.-screen electron)) ; needs app to be ready
 (def session (.-session electron))
 (def Tray (.-Tray electron))
+
+; needs app to be ready
+(def powerMonitor)
+(def protocol)
+(def screen)
 
 ; Hidden internal modules
 (def NavigationController (.-NavigationController electron))
@@ -79,9 +81,9 @@
     (do
       (reset! *win* (BrowserWindow. (clj->js options)))
       (reset! *options* options)))
-  (.. @*win*
-    (loadURL (file-url @*url*)))
-  ;; manage MainWindows close
+  (if @*url* ; only load HTML file if URL is specified
+    (.. @*win*
+      (loadURL (file-url @*url*))))
   (.. @*win*
     (on "closed"
       (fn [] (reset! *win* nil))))
@@ -90,3 +92,22 @@
 (defn change-window [url]
   (reset! *url* url)
   (*main-cli-fn*))
+
+(defn- start-app [error browser]
+  "Main event loop of app"
+  (enable-console-print!)
+  (println (str "Init application on " (.type os) "."))
+  (start-crash-reporter error)
+  (.. app
+    (on "window-all-closed"
+      (fn []
+;       (if (not= (.platform js/process) "darwin")
+        (.quit app))))
+  (.. app
+    (on "ready"
+      (fn []
+        (open-window browser)
+        (set! powerMonitor (.-powerMonitor electron))
+        (set! protocol (.-protocol electron))
+        (set! screen (.-screen electron))
+        (println (str "Start application on " (.type os) "."))))))

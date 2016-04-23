@@ -9,11 +9,6 @@
   (:require [cljs.nodejs :as js]
             [hack.electron.electron-main :as e]))
 
-; enable printf redirect to the console
-(enable-console-print!)
-
-; "Linux" or "Darwin" or "Windows_NT"
-(println (str "Init application on " (.type e/os) "."))
 
 (def browserWindowOptions
   {:height  850
@@ -27,19 +22,10 @@
 
 (defn- start-main []
   "Main event loop of app"
-  (e/start-crash-reporter errorCfg)
-  (.. e/app
-    (on "window-all-closed"
-      (fn []
-;       (if (not= (.platform js/process) "darwin")
-        (.quit e/app))))
-  (.. e/app
-    (on "ready"
-      (fn []
-        (e/open-window browserWindowOptions)
-        (println (str "Start application on " (.type e/os) "."))))))
+  (e/start-app errorCfg browserWindowOptions))
 
 ; set main CLI function on start-main
+; used to loop in case of HTML file change too
 (set! *main-cli-fn* start-main)
 
 (defn -main []
