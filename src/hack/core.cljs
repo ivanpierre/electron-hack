@@ -29,4 +29,4 @@
 (set! *main-cli-fn* start-main)
 
 (defn -main []
-  (e/change-window "index.html"))
+  (e/change-window nil))

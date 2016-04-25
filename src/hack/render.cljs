@@ -7,7 +7,8 @@
 
 (ns hack.render
   (:require [reagent.core :as reagent]
-            [cljsjs.react :as r]))
+            [cljsjs.react :as r]
+            [hack.electron.electron-front :as e]))
 
 (defn main-page
   []
@@ -15,7 +16,8 @@
 
 (defn mount-root
   []
-  (reagent/render [main-page] (.getElementById js/document "app")))
+  (reagent/render [main-page] js/document))
+  ; (reagent/render [main-page] (.getElementById js/document "app")))
 
 (defn init!
   []

@@ -60,7 +60,7 @@
 ; (def package (js/require (file-url "package.json"))) ; Package content
 (def *win* (atom nil))
 (def *options* (atom nil))
-(def *url* (atom "index.html"))
+(def *url* (atom nil))
 
 (defn start-crash-reporter [errorCfg]
   "Start crashReporter"
