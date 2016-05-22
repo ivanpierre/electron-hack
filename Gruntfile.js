@@ -146,6 +146,7 @@ function getReleasePaths(build) {
     devApp: "app",
     rootPkg: "package.json"
   };
+
   paths.release = path.join(paths.builds, build.releaseName);
   paths.devPkg = path.join(paths.devApp, "package.json");
   paths.prodCfg = path.join(paths.devApp, "prod.config.json");

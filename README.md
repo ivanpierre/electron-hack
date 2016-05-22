@@ -37,6 +37,6 @@ The commands I use.
 
 -	`lein clean` ; to clean most of the mess
 -	`lein cljsbuild once` ; to compile the whole
--	`rlwarp lein figwheel` ; to launch figwheel for tests
+-	`rlwarp lein figwheel front` ; to launch figwheel for tests
 -	`alias electron='/Applications/Electron.app/Contents/MacOS/Electron'` ; if you don't have an electron command when you install electron on your machine. In my case I'm on mac.
 -	`electron app` ; to launch the application

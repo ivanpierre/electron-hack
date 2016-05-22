@@ -16,8 +16,8 @@
 
 (defn mount-root
   []
-  (reagent/render [main-page] js/document))
-  ; (reagent/render [main-page] (.getElementById js/document "app")))
+  ; (reagent/render [main-page] js/document))
+  (reagent/render [main-page] (.getElementById js/document "app")))
 
 (defn init!
   []

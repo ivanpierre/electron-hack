@@ -60,7 +60,7 @@
 ; (def package (js/require (file-url "package.json"))) ; Package content
 (def *win* (atom nil))
 (def *options* (atom nil))
-(def *url* (atom nil))
+(def *url* (atom "index.html"))
 
 (defn start-crash-reporter [errorCfg]
   "Start crashReporter"
@@ -77,23 +77,20 @@
  ([options]
   (enable-console-print!)
   (println (str "Opening window " @*url* "."))
-  (if (not= options @*options*)
+  (when (not= options @*options*)
     (do
       (reset! *win* (BrowserWindow. (clj->js options)))
       (reset! *options* options)))
   (if @*url* ; only load HTML file if URL is specified
-    (.. @*win*
-      (loadURL (file-url @*url*))))
-  (.. @*win*
-    (on "closed"
-      (fn [] (reset! *win* nil))))
+    (.. @*win* (loadURL (file-url @*url*))))
+  (.. @*win* (on "closed" (fn [] (reset! *win* nil))))
   (println (str "Window " @*url* " opened."))))
 
 (defn change-window [url]
   (reset! *url* url)
   (*main-cli-fn*))
 
-(defn- start-app [error browser]
+(defn start-app [error browser]
   "Main event loop of app"
   (enable-console-print!)
   (println (str "Init application on " (.type os) "."))

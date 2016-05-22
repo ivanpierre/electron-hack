@@ -9,7 +9,6 @@
   (:require [cljs.nodejs :as js]
             [hack.electron.electron-main :as e]))
 
-
 (def browserWindowOptions
   {:height  850
    :title   "hack"
@@ -29,4 +28,4 @@
 (set! *main-cli-fn* start-main)
 
 (defn -main []
-  (e/change-window nil))
+  (e/change-window "index.html"))
